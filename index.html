@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>功课-The Work</title>
+<link href="css/style.css?v=2" rel="stylesheet">
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/jquery.scrollTo.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<!--<script src="js/public.js?v=5"></script>-->
+<script>
+  var phoneWidth =  parseInt(window.screen.width);
+  if(phoneWidth < 768){
+    var phoneScale = phoneWidth/750;
+    var ua = navigator.userAgent;
+    if (/Android (\d+\.\d+)/.test(ua)){
+      var version = parseFloat(RegExp.$1);
+      if(version>2.3){
+        document.write('<meta name="viewport" content="width=750, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+      }else{
+        document.write('<meta name="viewport" content="width=750, target-densitydpi=device-dpi">');
+      }
+    } else {
+      document.write('<meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">');
+    }
+  }
+</script>
+</head>
+<body class='index'>
+  <div class="cover none"></div>
+  <div class="cover mobile none"></div>
+  <div class="popup none">
+    <div class="popup_close">x</div>
+    <div class="popup_topic">立即报名</div>
+    <div class="popup_info">请提供您的信息<br/>我们会尽快与您联系</div>
+    <div class="popup_form">
+      <div class="popup_input_area flex_area">
+        <span class="popup_label">姓名： </span>
+        <input class="popup_input flex" type="text" id="name" />
+      </div>
+      <div class="popup_input_area flex_area">
+        <span class="popup_label">电话： </span>
+        <input class="popup_input flex" type="text" id="phone" />
+      </div>
+      <div class="popup_input_area flex_area">
+        <span class="popup_label">邮箱： </span>
+        <input class="popup_input flex" type="text" id="email" />
+      </div>
+      <div class="popup_input_area flex_area">
+        <span class="popup_label">公司： </span>
+        <input class="popup_input flex" type="text" id="company" />
+      </div>
+      <div class="popup_input_area flex_area">
+        <span class="popup_label">职位： </span>
+        <input class="popup_input flex" type="text" id="title" />
+      </div>
+    </div>
+    <div class="popup_agree flex_area">
+      <div class="popup_checkbox">√</div>
+      <div class="flex">同意并授权音昱使用我的个人信息作为沟通用途</div>
+    </div>
+    <div class="popup_submit">提交</div>
+  </div>
+  <div class="menubar mobile">
+    <div class="menu_item"></div>
+    <div class="menu_item">三岁定终生</div>
+    <div class="menu_item">课程介绍</div>
+    <div class="menu_item">学习收获</div>
+    <div class="menu_item">我们的优势</div>
+    <div class="menu_item">学员反馈</div>
+    <div class="menu_item">地址</div>
+  </div>
+  <header>
+    <div class="content">
+      <div class="menubtn"></div>
+      <div class="menubar pc">
+        <div class="menu_item">三岁定终生</div>
+        <div class="menu_item">课程介绍</div>
+        <div class="menu_item">学习收获</div>
+        <div class="menu_item">我们的优势</div>
+        <div class="menu_item">学员反馈</div>
+        <div class="menu_item">地址</div>
+      </div>
+      <div class="apply_btn active">报名</div>
+      <div class="logo"></div>
+    </div>
+  </header>
+  <section class="banner_area">
+    <div class="banners">
+      <div class="banner1">
+      <div class="banner_contents">
+            <div class="banner_word_pic"><img src="slice/icon-01.svg"></div>
+            <div class="banner_word_txt1">三 岁</br>定 终 生</div>
+            <div class="banner_word_txt2">别错过了孩子一生发展的关键期</div>
+            <div class="banner_word_txt3">
+              <div class="banner_word_txt33">
+                <div class="banner_word_txt333">报名</div>
+              </div>
+            </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <section class="target_area">
+    <div class="content1">
+      <div class="part1">
+        <div class="part1_left"><img src="slice/pic-01.jpg"></div>
+        <div class="part1_right">
+          <div class="part1_right_text1">0-3岁，孩子大脑发展和习惯养成的黄金期</div>
+          <div class="part1_right_text12 part1_right_text122">
+            人脑大约由1000亿个神经元组成。出生时，部分神经元就像一棵棵裸体的小树。而在出生后的两年内，神经元将迅速发育，每个神经元都与大约1万个其他神经元相连，形成神经网络，3岁时将达到成人的80％。因此从神经系统机能发展上说,3岁前是智力发展的高峰阶段。0-3岁还被称为“模仿期”，就像海绵一样，孩子们不管对和错，全部照单接收，因此这一阶段还是习惯养成的重要时期，影响孩子一生的成长。
+          </div>
+          <div class="part1_right_text13">
+              <div class="part1_right_text133">阅读更多</div>
+          </div>
+        </div>
+      </div>
+      <div class="part1">
+        <div class="part1_left"><img src="slice/pic-02.jpg"></div>
+        <div class="part1_right">
+          <div class="part1_right_text1">父母需要学习，孩子才能更好成长</div>
+          <div class="part1_right_text22 part1_right_text222">
+              从事任何行业或专业的工作，都需要一段时间的学习和训练才能更好地胜任，父母这项“工作”也一样。但作为父母的我们，往往是没有经过学习就上岗的。我们当中，有些人继承了上一代的教育方式，重复父母对自己的教育。但却发现，上一代的教育方式，早已不能适应这个快速变化的时代。还有些人，因为自己在成长过程中留下遗憾，固执地认为那些自己曾经疯狂想要的，就是对孩子来说最好的。用尽所有将孩子培养成自己理想中的模样，却不知，这些并不是孩子内心真正的需要。更多的人认为，养育的经验应在实践中收获，但小孩的成长黄金期如此短暂，但小孩的成长黄金期如此短暂，真的容许我们边做边学、在摸索中成长吗？
+          </div>
+          <div class="part1_right_text23">
+              <div class="part1_right_text233">阅读更多</div>
+          </div>
+        </div>
+      </div>
+      <div class="pic">
+        <div class="part2_image"><img src="slice/pic-03.png"></div>
+      </div>
+      <section class="gain">
+        <div class="gain_text">你将收获</div>
+        <div class="gain_images">
+          <div class="gain_image_left"><img src="img/three.png"></div>
+          <div class="gain_image_right"><img src="img/four.png"></div>
+        </div>
+      </section>
+      <div class="centent1">
+          <div class="center1_text1">三岁定终生：早教养育系列工作坊</div>
+          <div class="center1_text2">新生儿初来乍到这个世界，只能用哭和笑来表达情绪，初为父母的您是否充满惊喜但也带着些许的不知所措，也许月子中心和有经验的父母已经传授您各种“武功秘籍”，指导您如何照顾宝宝的吃喝拉撒睡，但面对如此可爱的新成员到来，是否仍然常常感到紧张与困惑，深怕一不留心就错过了宝宝的黄金发展期？ 神经科学研究发现，脑具有令人惊叹的可塑性，但是塑造的时机极为重要。生命早期的环境、人际关系和照料情况对宝宝的学习能力、情绪调控能力以及整体发展状况都有长期的影响。 本系列工作坊旨在帮助初为父母的您了解婴幼儿脑神经发育的关键敏感期，发展健康依恋关系；带您走进婴幼儿脑发育的神秘世界，探寻婴幼儿脑发育如何受到与父母互动的影响；探讨给宝宝什么样的陪伴、环境和教育，可以促进宝宝的情商和智力发育；并帮助父母自我管理情绪，明白表情和话语对宝宝的强大影响，学习有智慧的爱及管教，养育身心灵健康的聪明快乐宝宝。
+</div>
+      </div>
+       <div class="vidio">
+            <div class="vidio_image"><img src="slice/pic-08.jpg"></div>
+      </div>
+      <div class="pic2">
+        <div class="part_image2"><img src="img/two.jpg"></div>
+      </div>
+      <div class="part4_text">课程特色</div>
+      <div class="part4">
+        <div class="part4_left"> 
+          <dic class="part4_top cf">
+            <div class="part4_top_left"><img src="slice/pic-12.png"></div>
+            <dic class="part4_top_right">
+              “三岁定终生”早教养育系列课程，结合最新脑神经科学发现和心理学理论，提供最有用的实证知识和方法，透过触动人心的视频，以及实际操练和现场Q&A，让父母不仅从头脑认知层面更新，进而到内心的感动和改变，转而为有计划的行动，彻底改变您和宝宝相处的模式，帮助新生婴儿的父母，享受与宝宝相处的每一个珍贵时刻，并奠定宝宝发展的良好基础。
+            </dic>
+          </dic>
+          <div class="part4_bottom">
+            <div class="part4_bottom_left"><img src="slice/pic-12.png"></div>
+            <div class="part4_bottom_right">
+              我们还针对父母在养育孩子过程中的压力与情绪问题，在早教养育系列课程中创造性地加入了艺术治疗工作坊，通过艺术的方式，帮助父母发现并释放负面情绪，以健康的心态养育孩子健康成长。
+            </div>
+          </div>
+        </div>
+        <div class="part4_right"><img src="slice/pic-03.jpg"></div>
+      </div>
+    </div>
+  </section>
+  <section class="plan_area">
+    <div class="content1">
+      <div class="plan_topic">系列课程</div>
+      <div class="plan_text2">4个系列/12讲/24小时</div>
+      <div class="plan_parts">
+        <div class="plan_part">
+          <div class="plan_top"><img src="slice/pic-04.jpg"></div>
+          <div class="plan_bottom">
+            <div class="plan_bottom_text1">第一系列</div>
+            <div class="plan_bottom_text2">如何为孩子立下健康的生命根基</div>
+            <div class="plan_bottom_text3">妈妈的情绪和回应有关键的影响</div>
+            <div class="plan_bottom_text4">
+              <div class="plan_bottom_text44">
+                <a href="details.html">
+                详情
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plan_part">
+          <div class="plan_top"><img src="slice/pic-05.jpg"></div>
+          <div class="plan_bottom">
+            <div class="plan_bottom_text1">第二系列</div>
+            <div class="plan_bottom_text2">如何透过孩子的天生气质培养情商</div>
+            <div class="plan_bottom_text3">关注孩子情绪，教导宝宝和情绪做朋友</div>
+            <div class="plan_bottom_text4">
+              <div class="plan_bottom_text44">               
+                <a href="detail2.html">
+                详情
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plan_part">
+          <div class="plan_top"><img src="slice/pic-06.jpg"></div>
+          <div class="plan_bottom">
+            <div class="plan_bottom_text1">第三系列</div>
+            <div class="plan_bottom_text2">如何开启宝宝的心智</div>
+            <div class="plan_bottom_text3">双语学习，亲子阅读，音乐互动和游戏</div>
+            <div class="plan_bottom_text4">
+              <div class="plan_bottom_text44">               
+                <a href="detail3.html">
+                详情
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plan_part">
+          <div class="plan_top"><img src="slice/pic-07.jpg"></div>
+          <div class="plan_bottom">
+            <div class="plan_bottom_text1">第四系列</div>
+            <div class="plan_bottom_text2">如何让管教成为爱的行动</div>
+            <div class="plan_bottom_text3">认识话语的力量，学习实践爱的</div>
+            <div class="plan_bottom_text4">
+              <div class="plan_bottom_text44">               
+                <a href="detail4.html">
+                详情
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="suitable_area">
+    <div class="suitable_contents">
+      <div class="suitable_pic"><img src="slice/icon03.png"></div>
+      <div class="suitable_text1">开班计划</div>
+      <div class="suitable_text2">
+        <div class="suitable_text21">
+          <span class="data">4月13日</span><span class="time">9:00-17:00</span>
+        </div>
+        <div class="suitable_text21">
+          <span class="data">4月27日</span><span class="time">9:00-17:00</span>
+        </div>
+        <div class="suitable_text21">
+          <span class="data">5月11日</span><span class="time">9:00-17:00</span>
+        </div>
+        <div class="suitable_text21">
+          <span class="data">5月25日</span><span class="time">9:00-17:00</span>
+        </div>
+      </div>
+      <div class="suitable_text3">地址：音昱听堂，上海市徐汇区建国西路357号</div>
+      <div class="suitable_button1">
+        <div class="suitable_button11">
+            <div class="suitable_button111">报名</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content1">
+        <div class="center_text1">音昱家庭成长中心</div>
+        <div class="center_text2">家庭是社会的“细胞”，它承载着重要的社会责任，是每个人成长的摇篮和最初的“学校”，对孩子一生具有非常重要的塑造作用。音昱家庭成长中心，立足于建构家庭教育的理论基础，旨在以科学方法，融合正念养育的理念，打造全新的亲子学习互动平台。揭开神经科学、心理学于家庭教育中最新实证研究的结果，根据孩子的性别、年龄、性格等因材施教，为孩子一生的成长奠定坚实的生命根基。不同于以往的灌输式学习，音昱家庭成长中心主张互动、体验、实践等身心一体的教育方式，全面培养孩子的潜能。同时，音昱站在对家庭系统中亲密关系的高度理解，透过研发父母课程，促进亲子关系的健康发展，创造家庭成员共同成长的和谐幸福家园。</div>
+  </section>
+  <section class="content1">
+       <div class="good_images">
+            <div class="good_image"><img src="slice/pic-09.jpg"></div>
+      </div>
+  </section>
+    <section class="content1">
+        <div class="team_text1">我们的优势</div>
+        <div class="team_text2">以心理学为依托的教育团队</div>
+        <div class="teams">
+          <div class="team_left">
+            <div class="team_top">
+              <div class="team_top_image1"><img src="slice/pic-09.png"></div>
+            </div>
+            <div class="team_bottom">
+              <div class="teampart1_text1">王淑英Carol Wang</div>
+              <div class="teampart1_text2">心理学博士</div>
+              <div class="teampart1_text13 teampart1_text133">是台湾人，华东师范大学临床心理学博士，王博士目前任职于音昱家庭学习中王淑英博士来自台湾，华东师范大学临床心理学博士曾在家教育两个孩子12年，擅长透过亲子教育问题改变家庭关系、帮助父母提高自我觉察力、尤以提升母亲自我成长为主要途径，运用正念技术开展正念养育的父母课堂。音昱家庭成长中心总监上海国际心理健康协会秘书与注册临床专家级心理咨询师Workplace Options国际EAP讲员、咨询师美国Focus on Family 与中国社会工作协会联合认证的亲密关系培训师交大、复旦、同济、华东师范及上海外国语等大学客座讲师长宁区教研院的心理咨询总督导</div>
+              <div class="teampart1_text14">
+                <div class="teampart1_text144">详情</div>
+              </div>
+            </div>
+          </div>
+          <div class="team_right">
+            <div class="team_top">
+              <div class="team_top_image2"><img src="slice/pic-10.png"></div>
+            </div>
+            <div class="team_bottom">
+              <div class="teampart1_text1">倪明Viviana Ni</div>
+              <div class="teampart1_text2">艺术治疗师</div>
+              <div class="teampart1_text23 teampart1_text233">澳大利亚和新西兰注册认证艺术治疗师（AThR）,新加坡艺术治疗协会认证注册艺术治疗师,英国伦敦大学认证艺术治疗硕士（MAAT）,上海国际心理健康协会临床级注册成员（SIMHA）,The Red Pencil国际艺术治疗慈善机构成员,新加坡艺术治疗协会委员会前成员,澳洲新西兰艺术治疗协会总会马来西亚分会创始人,艺术工作者</div>
+              <div class="teampart1_text24">
+                <div class="teampart1_text244">详情</div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </section>
+  <section class="comments_area">
+    <div class="content">
+      <div class="comments_topic">往期学员分享</div>
+      <div class="comments_columns">
+        <div class="comments_items">
+          <div class="comments_item comments_item1">
+            <p>现在我明白看起来宝宝好像都不懂，也没有太大的变化,但实际上，他脑神经的突触连结都在以超过我想象急速地在运行及整合，而这一个宝贵的敏感期在人的一生中一去不复返。</p>
+            <p>现在我和9个月大的宝宝在一起的每一个时刻都变得有意义而弥足珍贵。</p>
+            <p class="comments_author">—— 丁女士</p>
+          </div>
+          <div class="comments_item comments_item2">
+            <p>真是打开了我的眼界，原来宝宝出生后的前三年，不是只有让他吃得好、睡得好、穿得暖，才明白我看着他的眼睛、我的表情、我说的话、我的抚摸和拥抱，都对宝宝脑神经和情绪发展有极大的影响。</p>
+            <p class="comments_author">—— 黄女士</p>
+          </div>
+        </div>
+        <div class="comments_items comments_other">
+          <div class="comments_item comments_item1">
+            <p>我是一个上班族妈妈，没有足够长的时间让我和宝宝在一起，上完课我省察到我和孩子的依恋关系需要改善，这是我以前没有注意到的。</p>
+            <p>谢谢这堂课带给我的提醒，让我知道在工作和孩子之间如何适当平衡，也提供了很好的方法，让我可以及时做有效的改变和调整，真的改善了我和宝宝的亲密关系，宝宝也更加稳定和好带了。</p>
+            <p class="comments_author">—— 王女士</p>
+          </div> 
+          <div class="comments_item comments_item1">
+            <p>一堂依恋关系的课就改变了我，现在和还不会说话的宝宝在一起的每一个时刻，都被赋予了重要的教养意义。</p>
+            <p class="comments_author">—— 林女士</p>
+          </div>
+        </div>
+        <div class="comments_items comments_other">
+          <div class="comments_item comments_item2">
+            <p>在老师的这堂课中，我意识到自己和宝宝的互动中还可以改善的部分。</p>
+            <p>有理论、有科学实证、有分析、有案例研讨，还提供了改善的方法，真是获益良多，这堂课很值得。</p>
+            <p class="comments_author">—— 张女士</p>
+          </div>
+          <div class="comments_item comments_item1">
+            <p>生宝宝之后，总在绞尽脑汁如何开发宝宝的大脑，以及如何让他更聪明，这堂课让我明白原来依恋关系大大影响宝宝的脑部发展，我真的推荐新生儿家长以及怀孕的父母，一定要来上课，不用花大笔银子就可以掌握这个使宝宝更聪明的秘诀，还能收获和宝宝亲密的关系，奠定宝宝一生高EQ的基础。</p>
+            <p class="comments_author">—— 王女士</p>
+          </div>
+        </div>
+      </div>
+      <div class="comments_more">查看更多</div>
+    </div>
+  </section>
+  <div class="comments_pic">
+    <div class="comments_image"><img src="slice/pic-11.png"></div>
+  </div>
+  <footer>
+    <div class="footer_topic">音昱更多课程和培训</div>
+    <div class="qrcode">
+      <image src="img/qrcode.jpg"/>
+    </div>
+    <div class="qrcode_words">
+      <image src="img/qrcode_words.png?v=1"/>
+    </div>    
+  </footer>
+  <div class="topbtn none">回到顶部</div>
+</body>
+</html>
